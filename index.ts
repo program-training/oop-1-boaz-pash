@@ -11,9 +11,19 @@ class Rectangle {
     return this.width * this.height;
   }
 }
-
+const rectangle = new Rectangle(2, 4);
+console.log(rectangle.area());
 
 //  2. Square - ריבוע
+class Square extends Rectangle {
+  long: number;
+  constructor(long: number) {
+    super(long, long);
+    this.long = long;
+  }
+}
+const square = new Square(4);
+console.log(square.area());
 
 // 3. Shape - צורה
 
