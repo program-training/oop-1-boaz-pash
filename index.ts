@@ -64,30 +64,68 @@
 
 // 4. Method Chaining
 
-class Rectangle {
-  width: number;
-  height: number;
-  sum: number;
-  constructor(width: number, height: number) {
-    this.width = width;
-    this.height = height;
-    this.sum = this.width * this.height;
-  }
-  area(): number {
-    return this.sum;
-  }
-  scale(inc: number): number {
-    this.sum += inc;
-    return this.sum;
-  }
- static getTowRectangle(rec1: Rectangle, rec2: Rectangle): Rectangle {
-    const width = rec1.width + rec2.width;
-    const height = rec1.height + rec2.height;
-    return new Rectangle(width, height);
-  } 
-}
-const rectangle1 = new Rectangle(2, 4);
-const rectangle2 = new Rectangle(3,6)
-console.log(Rectangle.getTowRectangle(rectangle1,rectangle2));
+// class Rectangle {
+//   width: number;
+//   height: number;
+//   sum: number;
+//   constructor(width: number, height: number) {
+//     this.width = width;
+//     this.height = height;
+//     this.sum = this.width * this.height;
+//   }
+//   area(): number {
+//     return this.sum;
+//   }
+//   scale(inc: number): number {
+//     this.sum += inc;
+//     return this.sum;
+//   }
+//  static getTowRectangle(rec1: Rectangle, rec2: Rectangle): Rectangle {
+//     const width = rec1.width + rec2.width;
+//     const height = rec1.height + rec2.height;
+//     return new Rectangle(width, height);
+//   }
+// }
+// const rectangle1 = new Rectangle(2, 4);
+// const rectangle2 = new Rectangle(3,6)
+// console.log(Rectangle.getTowRectangle(rectangle1,rectangle2));
 
 // 5. Shape with draw method
+class Shape {
+  constructor() {}
+  draw(): void {
+    console.log("Drawing a shape");
+  }
+}
+class Rectangle extends Shape {
+  constructor() {
+    super();
+  }
+  draw(): void {
+    console.log("Drawing a rectangle");
+  }
+}
+const rectangle = new Rectangle();
+class Square extends Shape {
+  constructor() {
+    super();
+  }
+  draw(): void {
+    console.log("Drawing a square");
+  }
+}
+const square = new Square();
+class Circle extends Shape {
+  constructor() {
+    super();
+  }
+  draw(): void {
+    console.log("Drawing a circle");
+  }
+}
+const circle = new Circle();
+function renderShapes(shapesArr: Shape[]) {
+  shapesArr.forEach((item) => item.draw());
+}
+const shapesArr: Shape[] = [circle, square, circle];
+renderShapes(shapesArr);
